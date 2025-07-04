@@ -1,0 +1,68 @@
+ 
+
+// Мінімальна та максимальна ширина області перегляду з макета
+$breakpoints:{
+    'sm':375px,
+    'md':768px,
+    'lg':1200px,
+    'xl':1440px,
+    'xxl':1920px,
+}
+
+ // Відступи
+ $spacer-base: 30px;
+
+ $spacer-xxs: 0.25 * $spacer-base;
+ $spacer-xs: 0.5 * $spacer-base;
+ $spacer-s: 0.75 * $spacer-base;
+ $spacer-m: $spacer-base;
+ $spacer-l: 1.5 * $spacer-base;
+ $spacer-xl: 2 * $spacer-base;
+ $spacer-xxl: 2.25 * $spacer-base;
+
+
+ $main-font: 'Montserrat';
+ // Розміри шрифтів
+ $font-weights: (
+     'Regular': 400,
+     'Medium': 500,
+     'SemiBold': 600,
+     'Bold': 700,
+ );
+
+ $font-sizes: (
+     'sm': 14px,
+     'md': 16px,
+     'lg': 20px,
+     'xl': 24px,
+ );
+
+ // Палітра кольорів
+ // Base
+ $primary: #F07F2E;
+ $success: #82C43C;
+ $info: #4E75FF;
+ $warning: #A461D8;
+ $danger: #FC5A5A;
+ $light: #92929D;
+ $dark: #13131A;
+ // Additional
+ $gray: #B5B5BE;
+ $bg-secondary-1: #1C1C24;
+ $bg-secondary-2: #292932;
+ $text-primary-1: #F15C27;
+ $text-primary-2: #D14A00;
+ $white: #fff;
+ $black: #000;
+
+ $colors:{
+    'light':#ffffff,
+    'light-primary':#fafafb,
+ }
+
+ // Брейкпоінти
+ $sm: 576px;
+ $md: 768px;
+ $lg: 992px;
+ $xl: 1200px;
+ $xxl: 1400px;
