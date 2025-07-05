@@ -57,6 +57,9 @@ $spacers: (
     'info': #4e75ff,
     'transparent': transparent,
     'current': currentColor,
- )
+ );
 
- 
+ $easings: (
+     'fast': 300ms ease,
+     'slow': 600ms ease,
+ );

@@ -1,0 +1,22 @@
+@use 'sass:list';
+
+@if list.index($btn-types, default) {
+    .btn-default {
+        background-color: #92929D;
+
+        &:active {
+            background-color: darken(#92929D, 10%);
+        }
+
+        @media (hover:hover) {
+            &:hover &:focus {
+                background-color: lighten(#92929D, 10%);
+                box-shadow: 0px 4px 10px 0px #F07F2E40;
+            }
+        }
+
+        &[disabled] {
+            background-color: #B5B5BE;
+        }
+    }
+}

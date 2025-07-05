@@ -1,7 +1,6 @@
-@use '../utils/placeholders';
-@use '../utils/variables' as var;
-@use '../utils/functions' as fn;
-@use '../utils/mixin' as mx;
+@use 'btn/btn' as btn with (
+    $btn-layer-spacing:4px
+);
 
 .welcome {
     grid-area: welcome;
