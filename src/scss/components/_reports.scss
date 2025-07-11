@@ -4,34 +4,123 @@
 @use '../utils/mixin' as mx;
 
 
+$reports-icon: (
+    'success': 'up',
+    'warning': 'dash',
+    'danger': 'down',
+);
+
 .reports {
+    @extend %section-frame;
+
     grid-area: reports;
+
+    min-width: 340px;
+    background-color: fn.get-color('dark-tertiary');
 }
 
-.reports-title {}
+.reports-title {
+    @extend %details;
 
-.reports-list {}
+    margin-bottom: 36px;
+    color: fn.get-color('light-secondary');
 
-.reports-item {}
+    span {
+        @extend %accent-text;
+        color: fn.get-color('light-primary');
+    }
+}
 
-.reports-co-worker {}
+.reports-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 
-.co-worker {}
+    @include mx.mediaQuery('md') {
+        gap: 32px;
+    }
 
-.co-worker-thumb {}
+    &:not(:last-child) {
+        margin-bottom: 28px;
+    }
+}
 
-.co-worker-avatar {}
+.reports-staff {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
 
-.co-worker-caption {}
+.staff {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-.reports-bar {}
+.staff-thumb {
+    @include mx.frame(32px, $is-circle: true);
+}
 
-.progress-bar {}
+.staff-caption {
+    @extend %details;
 
-.reports-status {}
+    color: fn.get-color('light-secondary');
+}
 
-.up {}
+.reports-bar {
+    width: calc(100% - 224px);
+    height: 4px;
 
-.dash {}
+    &[value] {
+        border-radius: 2px;
+    }
 
-.down {}
+    @each $key, $value in $reports-icon {
+        [data-status='#{$value}'] & {
+
+            // Mozilla browser
+            &[value] {
+                background-color: rgba(fn.get-color($key), 0.3);
+            }
+
+            &::-mor-progress-bar {
+                background-color: rgba(fn.get-color($key), 1);
+            }
+
+            // Chrome, Safari, Opera browser
+            &::-webkit-progress-bar {
+                background-color: rgba(fn.get-color($key), 0.3);
+                border-radius: 2px;
+            }
+
+            &::-webkit-progress-value {
+                background-color: rgba(fn.get-color($key), 1);
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+.reports-icon {
+    flex-shrink: 0;
+
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+
+    border-radius: 4px;
+
+    use {
+        opacity: 0;
+        fill: fn.get-color('light-primary');
+    }
+
+    @each $key, $value in $reports-icon {
+        [data-status='#{$value}'] & {
+            background-color: fn.get-color($key);
+
+            .#{$value} {
+                opacity: 1;
+            }
+        }
+    }
+}
